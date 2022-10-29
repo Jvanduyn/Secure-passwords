@@ -1,5 +1,5 @@
-// Assignment code here
-var pass = [];
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
 
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",
   "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -12,56 +12,56 @@ var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-var selection = [lowerCase, symbols, upperCase, numbers];
 
-var strng = ("")
+
 
 var generatePassword = function () {
+  // Assignment code here
+  var pass = [];
+  // running an empty string for the answer (password) to be put for the user to see.
+  var strng = [];
+
   var characterSelect = window.prompt("How many characters long would you like your password to be?(minimum of 8, maximum of 128 characters long)")
+
+  if (characterSelect < 8 || characterSelect > 128) {
+    window.alert("You must select a minimum of 8 characters, and a maximum of 128.")
+    return null
+  }
+
   var symbolSelect = window.confirm("Would you like your password to have special characters?")
   var upperSelect = window.confirm("Would you like your password to have upper case letters?")
   var numberSelect = window.confirm("Would you like your password to have numbers?")
   var lowerSelect = window.confirm("Would you like your password to have lowercase letters?")
+
+  if (symbolSelect === false && upperSelect === false && numberSelect === false && lowerSelect === false) {
+    window.alert("You must select at least one type of character.")
+    return null
+  }
+
   if (symbolSelect) {
     pass = pass.concat(symbols);
-    strng = strng + symbols[Math.floor(Math.random() * symbols.length)];
-    console.log(symbolSelect);
   }
   if (upperSelect) {
     pass = pass.concat(upperCase);
-    strng = strng + upperCase[Math.floor(Math.random() * upperCase.length)];
-    console.log(upperSelect);
   }
   if (numberSelect) {
     pass = pass.concat(numbers);
-    strng = strng + numbers[Math.floor(Math.random() * numbers.length)];
-    console.log(numberSelect);
   }
   if (lowerSelect) {
     pass = pass.concat(lowerCase);
-    strng = strng + lowerCase[Math.floor(Math.random() * lowerCase.length)];
-    console.log(lowerSelect);
-  }
-  if (pass.length <= 7) {
-    window.alert("You must select at least one type of character, a minimum of 8 characters, and a maximum of 128.")
   }
 
-  if (8 > characterSelect < 128) {
-    var num = characterSelect - strng.length;
-    for (var i = 1; i <= num; i++) {
-      strng = strng + pass[Math.floor(Math.random() * pass.length)];
-    }
-    // run else statement to display message asking to specify characters 8-128
-    console.log(strng)
-  } else {
-    window.alert("Please select a number between 8 and 128!")
+  for (var i = 0; i < characterSelect; i++) {
+    var randomCharacter = random(pass)
+    strng.push(randomCharacter)
   }
-  return strng;
+
+  return strng.join('');
 }
 
-
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+function random(x) {
+  return x[Math.floor(Math.random() * x.length)]
+}
 
 // Write password to the #password input
 function writePassword() {
