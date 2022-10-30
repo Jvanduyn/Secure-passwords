@@ -16,13 +16,15 @@ var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 
 var generatePassword = function () {
-  // Assignment code here
+  // pass is being used for all the selected variables to be stored
   var pass = [];
   // running an empty string for the answer (password) to be put for the user to see.
   var strng = [];
 
   var characterSelect = window.prompt("How many characters long would you like your password to be?(minimum of 8, maximum of 128 characters long)")
 
+  //this is allowing the character length to be between 8 and 128
+  //it is saying if user imput is below 8 OR above 128 then to return null(nothing)
   if (characterSelect < 8 || characterSelect > 128) {
     window.alert("You must select a minimum of 8 characters, and a maximum of 128.")
     return null
@@ -33,6 +35,7 @@ var generatePassword = function () {
   var numberSelect = window.confirm("Would you like your password to have numbers?")
   var lowerSelect = window.confirm("Would you like your password to have lowercase letters?")
 
+  //this is saying that if the user selects no to all requirements, it refers them to the message
   if (symbolSelect === false && upperSelect === false && numberSelect === false && lowerSelect === false) {
     window.alert("You must select at least one type of character.")
     return null
@@ -51,14 +54,15 @@ var generatePassword = function () {
     pass = pass.concat(lowerCase);
   }
 
+  //for loop to generate a random character with the criteria user inputs and runs it as many times as the user inputs using "characterSelect"
   for (var i = 0; i < characterSelect; i++) {
     var randomCharacter = random(pass)
     strng.push(randomCharacter)
   }
-
+  //joining the answer as a string
   return strng.join('');
 }
-
+//how the actual random number is selected
 function random(x) {
   return x[Math.floor(Math.random() * x.length)]
 }
@@ -75,15 +79,8 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// var passwordLegth = function (password.length) {
-//   for (var i = 1; i <= num; i++) {
-//     console.log(i);
-//   }
-// };
 
-// Listen for a click event on toggle switch
-
-
+//psuedo code below
 // max of 128 char and a min of 8
 
 // define all characters
