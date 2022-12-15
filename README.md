@@ -21,8 +21,8 @@ During this project, I wanted to be able to put my Javascript skills to the test
 
 ## Usage
 
-![alt text](develop/github.png)
-![alt text](develop/website.png)
+![alt text](./assets/website.png)
+![alt text](./assets/github.png)
 
 ## Credits
 

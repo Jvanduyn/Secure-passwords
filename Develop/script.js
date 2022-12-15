@@ -12,9 +12,6 @@ var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-
-
-
 var generatePassword = function () {
   // pass is being used for all the selected variables to be stored
   var pass = [];
