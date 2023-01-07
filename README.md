@@ -1,5 +1,7 @@
 # password-generator
 
+https://github.com/Jvanduyn/password-generator
+
 ## Description
 
 During this project, I wanted to be able to put my Javascript skills to the test. This web app will allow users to generate a random password using the criteria that fits them. They will be walked through a series of promts that will intake the users criteria, and generate a password in less than a second. 
